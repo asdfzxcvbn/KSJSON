@@ -1528,7 +1528,7 @@ static bool serializeObject(KSJSONSerializeContext* context, CFTypeRef objectRef
     unlikely_if(error != nil && *error != nil)
     {
         NSString* desc = [(*error).userInfo valueForKey:NSLocalizedDescriptionKey];
-        desc = [desc stringByAppendingFormat:@" (at offset %d)", context.pos - start];
+        desc = [desc stringByAppendingFormat:@" (at offset %ld)", context.pos - start];
         *error = [NSError errorWithDomain:@"KSJSON"
                                      code:1
                                  userInfo:[NSDictionary dictionaryWithObject:desc
